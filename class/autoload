@@ -1,0 +1,22 @@
+<?php
+
+
+class Autocarga{
+    static public function cargar_clase($clase){
+        $arrayClase = array();
+        $base = __DIR__.DIRECTORY_SEPARATOR;
+        $arrayClase['base_datos'] = $base.'data_base.php';
+        $arrayClase['Categorias'] = $base.'categorias.php';
+        $arrayClase['Tareas'] = $base.'tareas.php';
+        
+        if(isset($arrayClase[$clase])){
+            if(file_exists($arrayClase[$clase])){
+                include $arrayClase;
+            }else{
+                throw new Exception("archivo de clase no encotrado [{$arrayClase[$clase]}]");
+            }
+
+        }
+    }
+}
+spl_autoload_register('Autocarga::cargar_clase');

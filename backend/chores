@@ -1,0 +1,22 @@
+<?php
+
+include '../class/autoload.php';
+if (isset($_POST['accion']) && $_POST['accion'] === 'guardar') {
+    $mitarea = new Tarea();
+    $mitarea->nombre=$_POST['nombre de tarea'];
+    $mitarea->descripcion=$_POST['descripcion de tarea'];
+    $mitarea->tipo=$_POST['tipo de tarea interna'];
+    $mitarea->tipo=$_POST['tipo de tarea externa'];
+    $mitarea->tipo=$_POST['tipo de tarea externa asociada a empresa']
+    $mitarea->asignacion=$_POST['persona a la cual se le asigna la tarea']
+    $mitarea->prioridad=$_POST['ordenamiento del listado']
+    $mitarea->fecha=$_POST['fecha de modificacion']
+    $mitarea->fecha=$_POST['fecha de creacion']
+    $mitarea->registros=$_POST['registros activos']>
+    $mitarea->guardar();
+}else if(isset($_get['add'])){
+    include 'views/tareas.html';
+    die();
+}
+$lista_pro = Tareas::listar();
+include 'views/lista_tareas.html';
